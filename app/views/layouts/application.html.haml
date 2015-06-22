@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+  %head
+    %title
+      Mathematica Discovery
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = csrf_meta_tags 
+    / = render :file => 'layouts/commonscripts'
+  %body
+    .container-fluid
+      .col-md-10
+        .body-content
+          = render :file => 'layouts/alerts'
+          = yield
+      .row
+        .col-md-9
+          = render :file => 'layouts/footer'
+

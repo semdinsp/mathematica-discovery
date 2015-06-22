@@ -1,0 +1,8 @@
+-list = [{:type=>flash[:notice],:style=>'alert-success'},{:type=>flash[:error],:style=>'alert-danger'},{:type=>flash[:alert],:style=>'alert-danger'},{:type=>flash[:info],:style=>'alert-warning'}]
+- list.each do |alert|
+  - if alert[:type]!=nil and alert[:type]!=""
+    .alert(class="#{alert[:style]} alert-dismissable")
+      %button{:class=>"close", "data-dismiss"=>"alert", 'type'=>'button', 'aria-hidden'=>"true"}
+        &times;
+      %strong
+        %p= alert[:type]

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Owner:
+  = @mathematica_package.owner
+%p
+  %b Repository:
+  = @mathematica_package.repository
+%p
+  %b Description:
+  = @mathematica_package.description
+%p
+  %b Downloads:
+  = @mathematica_package.downloads
+
+= link_to 'Edit', edit_mathematica_package_path(@mathematica_package)
+\|
+= link_to 'Back', mathematica_packages_path

@@ -1,0 +1,22 @@
+= form_for @mathematica_package do |f|
+  - if @mathematica_package.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@mathematica_package.errors.count, "error")} prohibited this mathematica_package from being saved:"
+      %ul
+        - @mathematica_package.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :owner
+    = f.text_field :owner
+  .field
+    = f.label :repository
+    = f.text_field :repository
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :downloads
+    = f.number_field :downloads
+  .actions
+    = f.submit 'Save'

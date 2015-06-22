@@ -1,0 +1,27 @@
+%h1 Listing mathematica_packages
+
+%table
+  %thead
+    %tr
+      %th Owner
+      %th Repository
+      %th Description
+      %th Downloads
+      %th
+      %th
+      %th
+
+  %tbody
+    - @mathematica_packages.each do |mathematica_package|
+      %tr
+        %td= mathematica_package.owner
+        %td= mathematica_package.repository
+        %td= mathematica_package.description
+        %td= mathematica_package.downloads
+        %td= link_to 'Show', mathematica_package
+        %td= link_to 'Edit', edit_mathematica_package_path(mathematica_package)
+        %td= link_to 'Destroy', mathematica_package, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Mathematica package', new_mathematica_package_path

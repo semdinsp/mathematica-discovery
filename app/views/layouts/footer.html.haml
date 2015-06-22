@@ -1,0 +1,20 @@
+.footer
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h5.panel-title
+          %a{:class=>"accordion-toggle", "data-toggle"=>"collapse" , "data-parent"=>"#accordian", "data-target"=>"#collapseOne"}
+            Show Version and Copyright
+      #collapseOne.panel-collapse.collapse
+        .panel-body
+          %img(src="/images/estormcrm.jpg" width=50 height=50 alt='estorm logo')
+          %a(href='http://www.estormtech.com')
+            %h6 Copyright Estorm Technologies Pte. Ltd. 2015
+
+/load these last
+%script(type="text/javascript" src="https://code.jquery.com/jquery.js")
+%script(type="text/javascript" src="/bootstrap/dist/js/bootstrap.js")
+= javascript_include_tag 'jquery_ujs' 
+/ %script(type="text/javascript" src="/javascripts/application.js")
+/ do we need this highlight script?
+/ %script(type="text/javascript" src="http://yandex.st/highlightjs/7.3/highlight.min.js")

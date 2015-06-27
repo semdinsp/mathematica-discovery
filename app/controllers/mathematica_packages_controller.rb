@@ -25,9 +25,12 @@ class MathematicaPackagesController < ApplicationController
   # POST /mathematica_packages.json
   def create
     @mathematica_package = MathematicaPackage.new(mathematica_package_params)
-
+    repo="#{@mathematica_package.owner}/#{@mathematica_package.repository}"
+    flag=Octokit.repository?(repo)
+    @mathematica_package.description = Octokit.repository(repo)['description'] if flag
+    flash[:alert]= "Repository not found #{repo}" if !flag
     respond_to do |format|
-      if @mathematica_package.save
+      if flag and @mathematica_package.save 
         format.html { redirect_to @mathematica_package, notice: 'Mathematica package was successfully created.' }
         format.json { render :show, status: :created, location: @mathematica_package }
       else
